@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Home Page</title>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Universal Cafe</h1>
+    <hr>
+    <h3>Homepage</h3>
+    <hr>
+
+    <!-- Add a button -->
+    <a th:href="@{/orders/list}"
+       class="btn btn-primary btn-lg mb-3" style="width:200px; height:150px">
+        Orders
+    </a>
+    <a th:href="@{/menu/list}"
+       class="btn btn-primary btn-lg mb-3" style="width:200px; height:150px">
+        Menu
+    </a>
+    <a th:href="@{/order-detail/list}"
+       class="btn btn-primary btn-lg mb-3" style="width:200px; height:150px">
+        Order Detail
+    </a>
+    <hr>
+    <a th:href="@{/customer-tables/list}"
+       class="btn btn-primary btn-lg mb-3" style="width:200px; height:150px">
+        Customer Table
+    </a>
+    <a th:href="@{/employee/list}"
+       class="btn btn-primary btn-lg mb-3" style="width:200px; height:150px">
+        Employee
+    </a>
+    <a th:href="@{/payment/list}"
+       class="btn btn-primary btn-lg mb-3" style="width:200px; height:150px">
+        Payment
+    </a>
+    <hr>
+
+
+</div>
+
+</body>
+</html>

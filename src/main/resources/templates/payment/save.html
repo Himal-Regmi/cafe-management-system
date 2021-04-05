@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://localhost:8080/">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Save Payment</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Universal Cafe</h1>
+        <hr>
+        <h3>Payment</h3>
+        <hr>
+        <p class="h4 mb-4">Save Payment</p>
+        <form action="#" th:action="@{/payment/save}"
+              th:object="${payment}" method="POST">
+            <!-- Add hidden form field to handle update -->
+            <input type="hidden" th:field="*{id}" />
+            <div class="form-inline">
+                <input type="number" th:field="*{tableId}"
+                       class="form-control mb-4 col-4" placeholder="Table Id">
+                <span th:if="${#fields.hasErrors('tableId')}"
+                      th:errors="*{tableId}"
+                      class="badge badge-danger ml-2 mb-4"></span>
+            </div>
+            <div class="form-inline">
+                <input type="number" th:field="*{amount}"
+                       class="form-control mb-4 col-4" placeholder="Amount">
+                <span th:if="${#fields.hasErrors('amount')}"
+                      th:errors="*{amount}"
+                      class="badge badge-danger ml-2 mb-4"></span>
+            </div>
+            <div class="form-inline">
+                <input type="text" th:field="*{discount}"
+                       class="form-control mb-4 col-4" placeholder="Discount">
+                <span th:if="${#fields.hasErrors('discount')}"
+                      th:errors="*{discount}"
+                      class="badge badge-danger ml-2 mb-4"></span>
+            </div>
+            <div class="form-inline">
+                <input type="text" th:field="*{status}"
+                       class="form-control mb-4 col-4" placeholder="Status">
+                <span th:if="${#fields.hasErrors('status')}"
+                      th:errors="*{status}"
+                      class="badge badge-danger ml-2 mb-4"></span>
+            </div>
+            <div class="form-inline">
+                <input type="text" th:field="*{methodOfPayment}"
+                       class="form-control mb-4 col-4" placeholder="Mode Of Payment">
+                <span th:if="${#fields.hasErrors('methodOfPayment')}"
+                      th:errors="*{methodOfPayment}"
+                      class="badge badge-danger ml-2 mb-4"></span>
+            </div>
+            <button type="submit" class="btn btn-info col-2">Save</button>
+        </form>
+        <hr>
+        <a th:href="@{/payment/list}">Back to Payment list</a>
+    </div>
+</body>
+</html>

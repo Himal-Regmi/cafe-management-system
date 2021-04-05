@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Save Orders</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Universal Cafe</h1>
+        <hr>
+        <h3>Orders</h3>
+        <hr>
+        <p class="h4 mb-4">Save Order</p>
+        <form action="#" th:action="@{/orders/save}"
+              th:object="${order}" method="POST">
+            <!-- Add hidden form field to handle update -->
+            <input type="hidden" th:field="*{id}" />
+            <div class="form-inline">
+                <div class="col-1" margin=0 padding=0>Table Id</div>
+                <input type="number" th:field="*{tableId}"
+                       class="form-control mb-4 col-3" placeholder="Table ID">
+            </div>
+            <div class="form-inline">
+                <div class="col-1 form-inline">Order On</div>
+                <input type="Date" th:field="*{orderDate}"
+                       class="form-control mb-4 col-3">
+                <span th:if="${#fields.hasErrors('orderDate')}"
+                      th:errors="*{orderDate}"
+                      class="badge badge-danger ml-2 mb-4"></span>
+            </div>
+            <div class="form-inline">
+                <div class="col-1 form-inline">Delivery On</div>
+                <input type="Date" th:field="*{deliveryDate}"
+                       class="form-control mb-4 col-3">
+                <span th:if="${#fields.hasErrors('deliveryDate')}"
+                      th:errors="*{deliveryDate}"
+                      class="badge badge-danger ml-2 mb-4"></span>
+            </div>
+            <div class="form-inline">
+                <input type="text" th:field="*{orderStatus}"
+                       class="form-control mb-4 col-4" placeholder="Order Status">
+            </div>
+            <div class="form-inline">
+                <input type="text" th:field="*{comments}"
+                       class="form-control mb-4 col-4" placeholder="Comments">
+            </div>
+            <button type="submit" class="btn btn-info col-2">Save</button>
+        </form>
+        <hr>
+        <a th:href="@{/orders/list}">Back to Orders list</a>
+    </div>
+</body>

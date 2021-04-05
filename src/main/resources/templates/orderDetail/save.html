@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Save Order Detail</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Universal Cafe</h1>
+        <hr>
+        <h3>Order Detail</h3>
+        <hr>
+        <p class="h4 mb-4">Save Order Detail</p>
+        <form action="#" th:action="@{/order-detail/save}"
+              th:object="${orderDetail}" method="POST">
+            <!-- Add hidden form field to handle update -->
+            <input type="hidden" th:field="*{id}" />
+            <div class="form-inline">
+                <input type="number" th:field="*{orderId}"
+                       class="form-control mb-4 col-4" placeholder="Order Id">
+                <span th:if="${#fields.hasErrors('orderId')}"
+                      th:errors="*{orderId}"
+                      class="badge badge-danger ml-2 mb-4"></span>
+            </div>
+            <div class="form-inline">
+                <input type="text" th:field="*{menuId}"
+                       class="form-control mb-4 col-4" placeholder="Menu Id">
+                <span th:if="${#fields.hasErrors('menuId')}"
+                      th:errors="*{menuId}"
+                      class="badge badge-danger ml-2 mb-4"></span>
+            </div>
+            <div class="form-inline">
+                <input type="number" th:field="*{quantity}"
+                       class="form-control mb-4 col-4" placeholder="Quantity">
+                <span th:if="${#fields.hasErrors('quantity')}"
+                      th:errors="*{quantity}"
+                      class="badge badge-danger ml-2 mb-4"></span>
+            </div>
+            <button type="submit" class="btn btn-info col-2">Save</button>
+        </form>
+        <hr>
+        <a th:href="@{/order-detail/list}">Back to order detail list</a>
+    </div>
+</body>
